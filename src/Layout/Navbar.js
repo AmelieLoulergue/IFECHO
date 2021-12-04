@@ -41,7 +41,7 @@ function Navbar() {
       ) : (
         <ul className={classes["nav-ul"]}>
           <li className={classes["nav-link"]}><Link to="/profile">Mon profil</Link></li>
-          <li className={classes["nav-link"]} onClick={logOut}>Déconnexion</li>
+          <li className={classes["nav-link"]} onClick={logOut}><Link to="/">Déconnexion</Link></li>
         </ul>
       )}
     </nav>

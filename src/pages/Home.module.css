@@ -1,0 +1,19 @@
+.jumbotron{
+    background: url('https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/6/0/d/60d866d94f_50166286_vache-min.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home h2{
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 0.5rem;
+}
+
+.section {
+  margin: 5rem 0;
+}
