@@ -19,7 +19,7 @@ function Profile() {
 
   const updateHandler = async (e, field) => {
     e.preventDefault();
-    const res = await fetch(`http://localhost:3000/users/${currentUser.id}`, {
+    const res = await fetch(`https://ifecho-api.herokuapp.com/users/${currentUser.id}`, {
       headers: {
         "Authorization": localStorage.getItem("jwt_token"),
         "Content-Type": "application/json",
