@@ -119,5 +119,6 @@ button{
 }
 
 .react-geocoder-results > *{
-  border: 1px rgb(191, 191, 191) solid;
+  border-bottom: 1px rgb(191, 191, 191) solid;
+  margin-bottom:10px;
 }
