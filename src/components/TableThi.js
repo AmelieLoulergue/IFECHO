@@ -1,7 +1,7 @@
 import classes from "./TableThi.module.css"
 import { useEffect } from "react";
 
-const TableThi = ({historical_thi, future_thi, dateThi, loading}) => {
+const TableThi = ({historical_thi, future_thi, dateThi }) => {
 
   const getNewDate = (inputDate, nbOfDays) => {
     console.log("input date ", inputDate)
@@ -71,7 +71,7 @@ const TableThi = ({historical_thi, future_thi, dateThi, loading}) => {
               <div className={historical_thi ? getRanking(historical_thi[4]):""}>{historical_thi && historical_thi[4]}</div>
             </td>
             <td className={classes.selected} >
-              <div className={` ${classes.round}`}>XXXX</div>
+            <div className={historical_thi ? getRanking(historical_thi[5]):""}>{historical_thi && historical_thi[5]}</div>
             </td>
             <td>
               <div className={`${future_thi ? getRanking(future_thi[0]):""} ${classes.round}`}>{future_thi && future_thi[0]}</div>

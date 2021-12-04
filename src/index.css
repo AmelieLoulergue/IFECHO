@@ -109,7 +109,6 @@ button{
 
 .padding-xl{
   padding: 3rem 0;
-
 }
 
 .react-geocoder-results{
@@ -118,7 +117,47 @@ button{
   border-radius: 10px;
 }
 
-.react-geocoder-results > *{
+.react-geocoder-results > * {
   border-bottom: 1px rgb(191, 191, 191) solid;
   margin-bottom:10px;
+  cursor: pointer;
+  transition: 0.25s all;
+}
+
+.react-geocoder-results > *:hover{
+  color: #3BB589;
+}
+.big{
+  font-size: 2.5rem;
+  color: green;
+}
+
+.ct{
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-left: 1px #3bb58873 solid;
+  position: relative;
+}
+
+.speed{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* transform: translateY(50px); */
+  position: relative;
+}
+
+.abs{
+  position: absolute;
+  top: -1rem;
+}
+
+.speed>div{
+  /* border: 3px red solid; */
+  height: 15rem;
+  transform: translateY(30px);
 }
