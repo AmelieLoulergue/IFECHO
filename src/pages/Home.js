@@ -11,8 +11,11 @@ function Home() {
   const [humidity, setHumidity]= useState("")
   const [date, setDate]= useState("")
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
   const MyInput = (props) => <input {...props} placeholder="Où se situe votre exploitation ?" />
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
@@ -49,6 +52,7 @@ function Home() {
       </div>
       <section className={classes.section}>
         <h2>Analysez l'indice THI de votre exploitation</h2>
+
       <Geocoder                
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}                
           onSelected={onSelected}   
