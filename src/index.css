@@ -11,3 +11,62 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#root{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.App{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+main{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+label{
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+form{
+  width: max-content;
+}
+
+form > div{
+  margin: 1rem 0;
+}
+
+form > div:last-of-type{
+  text-align: left;
+}
+
+form label{
+  text-align: left;
+}
+
+form input, .react-geocoder input{
+  width: 20rem;
+  padding: 0.5rem;
+}
+
+button{
+  background-color: transparent;
+  border: 1px rgb(34, 34, 34) solid;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+}
+
