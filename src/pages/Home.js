@@ -139,7 +139,7 @@ function Home() {
           <>
             <div className={classes.forecast}>
               <div className={classes.speedometer}>
-                <h3>Dans 24h</h3>
+                <h3>Dans 12h</h3>
                 <h5>Charge thermique max : <span className="big">0</span></h5>
                 <h3>THI :</h3>
                 <ReactSpeedometer
@@ -152,7 +152,7 @@ function Home() {
                     "#F57710",
                     "#C40D00",
                   ]}
-                  value={thiForecastWeather48h[1].toFixed(1)}
+                  value={thiForecastWeather48h[0].toFixed(1)}
                 />
               </div>
               <div className={classes.speedometer}>
@@ -173,7 +173,7 @@ function Home() {
                 />
               </div>
               <div className={classes.speedometer}>
-                <h3>Dans 24h</h3>
+                <h3>Dans 48h</h3>
                 <h5>Charge thermique max : <span className="big">0</span></h5>
                 <h3>THI :</h3>
                 <ReactSpeedometer
@@ -186,7 +186,7 @@ function Home() {
                     "#F57710",
                     "#C40D00",
                   ]}
-                  value={thiForecastWeather48h[1].toFixed(1)}
+                  value={thiForecastWeather48h[2].toFixed(1)}
                 />
               </div>
             </div>

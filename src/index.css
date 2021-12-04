@@ -117,7 +117,7 @@ button{
   border-radius: 10px;
 }
 
-.react-geocoder-results > *{
+.react-geocoder-results > * {
   border-bottom: 1px rgb(191, 191, 191) solid;
   margin-bottom:10px;
   cursor: pointer;
