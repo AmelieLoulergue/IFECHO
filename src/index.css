@@ -82,9 +82,11 @@ button{
 }
 
 .A { background-color: forestgreen; }
-.B { background-color: yellow; }
+.B { 
+  background-color: yellow; 
+  color:black}
 .C { background-color: orangered; }
-.D { background-color: red; }
+.D { background-color: rgb(184, 0, 0); }
 
 .round{
   width: 3rem;
@@ -93,4 +95,9 @@ button{
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+}
+
+.B.round{
+  color: black;
 }
