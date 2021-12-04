@@ -80,3 +80,17 @@ button{
 .react-geocoder input:focus{
   outline: 0;
 }
+
+.A { background-color: forestgreen; }
+.B { background-color: yellow; }
+.C { background-color: orangered; }
+.D { background-color: red; }
+
+.round{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

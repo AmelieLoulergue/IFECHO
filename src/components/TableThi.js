@@ -1,6 +1,7 @@
 import classes from "./TableThi.module.css"
+import { useEffect } from "react";
 
-const TableThi = ({dateThi}) => {
+const TableThi = ({historical_thi, future_thi, dateThi, loading}) => {
 
   const getNewDate = (inputDate, nbOfDays) => {
     console.log("input date ", inputDate)
@@ -12,6 +13,25 @@ const TableThi = ({dateThi}) => {
       .toString()
       .slice(2, 4)}`;
   };
+
+  // useEffect(()=>{
+
+  // },[dateThi])
+
+  const getRanking = (thi) =>{
+    if(thi<=68){
+      return 'round A'
+    }
+    if(thi>68 && thi <= 72){
+      return 'round B'
+    }
+    if(thi>72 && thi <= 78){
+      return 'round C'
+    }
+    if(thi > 78){
+      return 'round D'
+    }
+  }
 
 
   return (
@@ -36,37 +56,37 @@ const TableThi = ({dateThi}) => {
         <tbody>
           <tr>
             <td>
-              <div className={`${classes.A} ${classes.round}`}>39</div>
+            <div className={historical_thi ? getRanking(historical_thi[0]):""}>{historical_thi && historical_thi[0]}</div>
             </td>
             <td>
-              <div className={`${classes.B} ${classes.round}`}>39</div>
+              <div className={historical_thi ? getRanking(historical_thi[1]):""}>{historical_thi && historical_thi[1]}</div>
             </td>
             <td>
-              <div className={`${classes.A} ${classes.round}`}>39</div>
+              <div className={historical_thi ? getRanking(historical_thi[2]):""}>{historical_thi && historical_thi[2]}</div>
             </td>
             <td>
-              <div className={` ${classes.C} ${classes.round}`}>39</div>
+              <div className={historical_thi ? getRanking(historical_thi[3]):""}>{historical_thi && historical_thi[3]}</div>
             </td>
             <td>
-              <div className={`${classes.B} ${classes.round}`}>39</div>
+              <div className={historical_thi ? getRanking(historical_thi[4]):""}>{historical_thi && historical_thi[4]}</div>
             </td>
             <td className={classes.selected} >
-              <div className={`${classes.D} ${classes.round}`}>39</div>
+              <div className={` ${classes.round}`}>XXXX</div>
             </td>
             <td>
-              <div className={`${classes.E} ${classes.round}`}>39</div>
+              <div className={`${future_thi ? getRanking(future_thi[0]):""} ${classes.round}`}>{future_thi && future_thi[0]}</div>
             </td>
             <td>
-              <div className={`${classes.E} ${classes.round}`}>39</div>
+              <div className={`${future_thi ? getRanking(future_thi[1]):""} ${classes.round}`}>{future_thi && future_thi[1]}</div>
             </td>
             <td >
-              <div className={`${classes.F} ${classes.round}`}>39</div>
+              <div className={`${future_thi ? getRanking(future_thi[2]):""} ${classes.round}`}>{future_thi && future_thi[2]}</div>
             </td>
             <td>
-              <div className={`${classes.D} ${classes.round}`}>39</div>
+              <div className={`${future_thi ? getRanking(future_thi[3]):""} ${classes.round}`}>{future_thi && future_thi[3]}</div>
             </td>
             <td>
-              <div className={`${classes.C} ${classes.round}`}>39</div>
+              <div className={`${future_thi ? getRanking(future_thi[4]):""} ${classes.round}`}>{future_thi && future_thi[4]}</div>
             </td>
           </tr>
         </tbody>

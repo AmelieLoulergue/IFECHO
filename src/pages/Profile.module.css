@@ -5,6 +5,8 @@
 }
 
 .avatar{
+  border: 2px black solid;
+  padding: 0.5rem;
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
