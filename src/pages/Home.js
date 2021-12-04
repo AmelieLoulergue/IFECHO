@@ -86,9 +86,6 @@ function Home() {
     ]);
   };
 
-
-
-
   return (
     <main className={classes.home}>
       <div className={classes.jumbotron}>
@@ -111,8 +108,8 @@ function Home() {
         {context.searchCoordinates ? (
           <>
             <div className={classes['main-speedometer']}>
-            <h3>Charge Thermique Max  à l'instant T : 0 </h3>
-            <h3>THI :</h3>
+              <div className="speed">
+                <h3 className="abs">THI :</h3>
                 <ReactSpeedometer
                   minValue={0}
                   maxValue={100}
@@ -125,6 +122,11 @@ function Home() {
                   ]}
                   value={thi}
                 />
+              </div>
+              <div className="ct">
+                <h3 className="abs">Charge thermique max :</h3>
+                <div className="big">0</div>
+              </div>
             </div>
             <form className={classes.form} onSubmit={handleSubmit}>
               <button type="submit">Prévisions à 12h, 24h et 48h</button>
@@ -137,25 +139,8 @@ function Home() {
           <>
             <div className={classes.forecast}>
               <div className={classes.speedometer}>
-                <h3>Dans 12h</h3>
-                <h5>Charge thermique max : 0</h5>
-                <h3>THI :</h3>
-                <ReactSpeedometer
-                  minValue={0}
-                  maxValue={100}
-                  segmentColors={[
-                    "#3FBF50",
-                    "#7FC211",
-                    "#F2E311",
-                    "#F57710",
-                    "#C40D00",
-                  ]}
-                  value={thiForecastWeather48h[0].toFixed(1)}
-                />
-              </div>
-              <div className={classes.speedometer}>
                 <h3>Dans 24h</h3>
-                <h5>Charge thermique max : 0</h5>
+                <h5>Charge thermique max : <span className="big">0</span></h5>
                 <h3>THI :</h3>
                 <ReactSpeedometer
                   minValue={0}
@@ -171,8 +156,8 @@ function Home() {
                 />
               </div>
               <div className={classes.speedometer}>
-                <h3>Dans 48h</h3>
-                <h5>Charge thermique max : 0</h5>
+                <h3>Dans 24h</h3>
+                <h5>Charge thermique max : <span className="big">0</span></h5>
                 <h3>THI :</h3>
                 <ReactSpeedometer
                   minValue={0}
@@ -184,7 +169,24 @@ function Home() {
                     "#F57710",
                     "#C40D00",
                   ]}
-                  value={thiForecastWeather48h[2].toFixed(1)}
+                  value={thiForecastWeather48h[1].toFixed(1)}
+                />
+              </div>
+              <div className={classes.speedometer}>
+                <h3>Dans 24h</h3>
+                <h5>Charge thermique max : <span className="big">0</span></h5>
+                <h3>THI :</h3>
+                <ReactSpeedometer
+                  minValue={0}
+                  maxValue={100}
+                  segmentColors={[
+                    "#3FBF50",
+                    "#7FC211",
+                    "#F2E311",
+                    "#F57710",
+                    "#C40D00",
+                  ]}
+                  value={thiForecastWeather48h[1].toFixed(1)}
                 />
               </div>
             </div>
