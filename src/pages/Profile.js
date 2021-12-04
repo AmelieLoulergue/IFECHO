@@ -1,17 +1,20 @@
 import classes from "./Profile.module.css";
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import GlobalContext from "../context/GlobalContext";
+import TableThi from "../components/TableThi";
 
 function Profile() {
   const [modifyLastName, setModifyLastName] = useState(false);
   const [modifyFirstName, setModifyFirstName] = useState(false);
-  const [newLastName, setNewLastName] = useState()
-  const [newFirstName, setNewFirstName] = useState()
+  const [newLastName, setNewLastName] = useState();
+  const [newFirstName, setNewFirstName] = useState();
+  const [dateThi, setDateThi] = useState();
 
   const ctx = useContext(GlobalContext);
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
-  const updateHandler = async (field) => {
+  const updateHandler = async (e, field) => {
+    e.preventDefault();
     const res = await fetch(`http://localhost:3000/users/${currentUser.id}`, {
       headers: {
         "Authorization": localStorage.getItem("jwt_token"),
@@ -19,7 +22,7 @@ function Profile() {
       },
       body: JSON.stringify({
         user: {
-          [field]: field==="first_name" ? newFirstName : newLastName
+          [field]: field === "first_name" ? newFirstName : newLastName,
         },
       }),
       method: "PUT",
@@ -27,16 +30,22 @@ function Profile() {
   };
 
   const showInput = (field) => {
-    if(field === "last_name"){
-      setModifyLastName(!modifyLastName)
-    } else if(field==="first_name") {
-      setModifyFirstName(!modifyFirstName)
+    if (field === "last_name") {
+      setModifyLastName(!modifyLastName);
+    } else if (field === "first_name") {
+      setModifyFirstName(!modifyFirstName);
     }
-  }
-// ATTENTION : pour que les modifications (nom, prénom) soient prises en compte, il faudra se déconnecter et se reconnecter
+  };
+
+  // ATTENTION : pour que les modifications (nom, prénom) soient prises en compte, il faudra se déconnecter et se reconnecter
   return (
     <main>
       <h2>Vos exploitations :</h2>
+      <div className={classes["round-chart"]}>
+        <input type="date" onChange={(e) => setDateThi(e.target.value)} />
+        {dateThi && <TableThi dateThi={dateThi} />}
+      </div>
+
       <h2>Vos informations personnelles :</h2>
       <div className={classes.profile}>
         <div className={classes.avatar}></div>
@@ -50,11 +59,11 @@ function Profile() {
               Modifier
             </small>
           </li>
-            {modifyLastName && (
-              <form onSubmit={() => updateHandler("last_name")}>
-              <input onChange={(e=>setNewLastName(e.currentTarget.value))} />
-              </form>
-            )}
+          {modifyLastName && (
+            <form onSubmit={(e) => updateHandler(e, "last_name")}>
+              <input onChange={(e) => setNewLastName(e.currentTarget.value)} />
+            </form>
+          )}
           <li>
             <b>Prénom :</b> {currentUser.first_name}
             <small
@@ -64,11 +73,11 @@ function Profile() {
               Modifier
             </small>
           </li>
-            {modifyFirstName && (
-              <form onSubmit={() => updateHandler("first_name")}>
-                <input onChange={(e=>setNewFirstName(e.currentTarget.value))} />
-              </form>
-            )}
+          {modifyFirstName && (
+            <form onSubmit={(e) => updateHandler(e, "first_name")}>
+              <input onChange={(e) => setNewFirstName(e.currentTarget.value)} />
+            </form>
+          )}
           <li>
             <b>Rôle :</b>{" "}
             {(currentUser["is_advisor?"] && "Conseiller") || "Exploitant"}

@@ -1,0 +1,43 @@
+
+table{
+  border-collapse: collapse; 
+}
+
+th{
+  font-size: 0.8rem;
+  padding: 1rem 0;
+}
+
+td div {
+  margin: auto;
+}
+
+td{
+  justify-content: center;
+  padding: 1rem;
+}
+
+th.selected, td.selected { 
+  border-left:2px solid orchid; 
+  border-right:2px solid orchid; 
+}
+
+thead{
+  border-bottom: 1px black solid;
+}
+
+.round{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.A { background-color: forestgreen; }
+.B { background-color: rgb(9, 180, 9); }
+.C { background-color: greenyellow; }
+.D { background-color: yellow; }
+.E { background-color: orangered; }
+.F { background-color: red; }
