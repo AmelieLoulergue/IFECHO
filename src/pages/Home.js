@@ -87,12 +87,14 @@ function Home() {
   };
 
 
+
+
   return (
     <main className={classes.home}>
       <div className={classes.jumbotron}>
         <h2>Anticiper le stress thermique pour le bien-être des animaux !</h2>
       </div>
-      <section className={classes.section}>
+      <section className={`padding-xl section`}>
         <h2>Analysez l'indice THI de votre exploitation</h2>
 
         <Geocoder
