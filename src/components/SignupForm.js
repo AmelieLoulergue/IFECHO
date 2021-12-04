@@ -10,7 +10,7 @@ const SignupForm = () => {
   const [password, setPassword] = useState('');
   const context = useContext(GlobalContext)
   const signUp = async (datas) => {
-    fetch("https://ifecho-api.herokuapp.com/users", {
+    fetch("http://localhost:3000/users", {
     body: JSON.stringify(datas),
     headers: {
       "Content-Type": "application/json"

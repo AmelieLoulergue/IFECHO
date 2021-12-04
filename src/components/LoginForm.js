@@ -9,7 +9,7 @@ function LoginForm() {
   const context = useContext(GlobalContext);
   console.log(context.setCurrentUser, context.currentUser);
   const logIn = async (datas) => {
-    fetch("https://ifecho-api.herokuapp.com/users/sign_in", {
+    fetch("http://localhost:3000/users/sign_in", {
       body: JSON.stringify(datas),
       headers: {
         "Content-Type": "application/json",

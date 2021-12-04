@@ -8,7 +8,7 @@ function Navbar() {
   const context = useContext(GlobalContext);
   console.log(context);
   const logOut = () => {
-    fetch("https://ifecho-api.herokuapp.com/users/sign_out", {
+    fetch("http://localhost:3000/users/sign_out", {
       headers: {
         "Authorization": localStorage.getItem("jwt_token"),
         "Content-Type": "application/json",

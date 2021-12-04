@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import {useNavigate} from "react-router"
 import GlobalContext from "../context/GlobalContext";
 import TableThi from "../components/TableThi";
-
+import Breeder from "./Breeder";
 function Profile() {
   const [modifyLastName, setModifyLastName] = useState(false);
   const [modifyFirstName, setModifyFirstName] = useState(false);
@@ -19,7 +19,7 @@ function Profile() {
 
   const updateHandler = async (e, field) => {
     e.preventDefault();
-    const res = await fetch(`https://ifecho-api.herokuapp.com/users/${currentUser.id}`, {
+    const res = await fetch(`http://localhost:3000/users/${currentUser.id}`, {
       headers: {
         "Authorization": localStorage.getItem("jwt_token"),
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ function Profile() {
   const fetchSite = async()=>{
     // navigate(`/profile/${dateThi.toString()}`)
   
-    const res = await fetch("https://ifecho-api.herokuapp.com/sitesdate/1",{
+    const res = await fetch("http://localhost:3000/sitesdate/1",{
       headers:{
         "Content-Type":"application/json"
       },
@@ -71,7 +71,10 @@ function Profile() {
       <div className={classes["round-chart"]}>
         <input type="date" onChange={(e) => changeDateHandler(e)} />
         {dateThi && <TableThi historical_thi={siteInfo.historical_thi} future_thi={siteInfo.future_thi} dateThi={dateThi} /> }
+        <br/>
+        {dateThi && <Breeder dateThi={dateThi} /> }
       </div>
+
 
       <h2>Vos informations personnelles :</h2>
       <div className={classes.profile}>
