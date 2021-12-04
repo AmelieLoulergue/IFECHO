@@ -15,5 +15,48 @@
 }
 
 .section {
-  margin: 5rem 0;
+  /* margin: 5rem 0; */
+  width: 100%;
+  /* padding: 3rem 0; */
+}
+
+
+
+.forecast > div{
+  /* border-right: 1px dotted green; */
+}
+
+.form {
+  margin: 0 auto 3rem;
+}
+
+.main-speedometer{
+  width: 25rem;
+  margin: 4rem auto;
+}
+
+.main-speedometer>div{
+  overflow: hidden;
+  height: 15rem;
+}
+
+.speedometer{
+  height: 20rem;
+}
+
+.speedometer>div{
+  overflow: hidden;
+}
+
+.forecast{
+  display: flex;
+  margin-top: 3rem;
+  padding: 4rem 0;
+  justify-content: space-around;
+  gap: 3rem;
+  /* border: 2px red solid; */
+  align-items: center;
+  background-color: rgba(152, 251, 152, 0.349);
+  width: 100%;
+  margin: 0 auto  ;
 }
