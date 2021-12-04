@@ -10,14 +10,10 @@ function Home() {
   const [temp, setTemp]= useState("")
   const [humidity, setHumidity]= useState("")
   const [date, setDate]= useState("")
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-
+  const [hourlyForecastWeather48h, setHourlyForecastWeather48h]= useState("")
+  const [thiForecastWeather48h, setThiHourlyForecastWeather48h]= useState([])
   const MyInput = (props) => <input {...props} placeholder="Où se situe votre exploitation ?" />
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 
   const onSelected = (result) => {
     context.searchCoordinates = [result.latitude, result.longitude]
@@ -28,21 +24,42 @@ function Home() {
       setHumidity(response.main.humidity)
       calculTHI()
     })
+    console.log(context.searchCoordinates[0],context.searchCoordinates[1] )
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${context.searchCoordinates[0]}&lon=${context.searchCoordinates[1]}&APPID=${process.env.REACT_APP_WEATHER}`)
+    .then(response => response.json())
+    .then(res =>{ 
+      console.log(res)
+      setHourlyForecastWeather48h(res.hourly)
+    })
   }
-  const calculTHI = () => {
-    setThi((1.8*temp/100) + (humidity/100) * (temp/100 - 14.4) +46.4)
+  const calculTHI = (datasTemp ="", datasHumidity="") => {
+      setThi((1.8*temp/100) + (humidity/100) * (temp/100 - 14.4) +46.4)
    }
    
   const handleSubmit = e => {
-    e.preventDefault()
-    console.log(Date.now())
-    console.log(context.searchCoordinates[0],context.searchCoordinates[1] )
-    fetch(`http://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${context.searchCoordinates[0]}&lon=${context.searchCoordinates[1]}&dt=${1638626181}&APPID=${process.env.REACT_APP_WEATHER}`)
-    .then(response => response.json())
-    .then(res =>{ console.log(res)
-    
-    })
-    // fetch(`http://localhost:3000/`)
+      e.preventDefault()
+      let n = 0
+      let forecast12h = []
+      let forecast24h = []
+      let forecast48h = []
+      hourlyForecastWeather48h.map(
+        weather => {
+        if(n < 12){
+          forecast12h.push((1.8*weather.temp/100) + (weather.humidity/100) * (weather.temp/100 - 14.4) + 46.4)
+        }else if(n < 24){
+          forecast24h.push((1.8*weather.temp/100) + (weather.humidity/100) * (weather.temp/100 - 14.4) + 46.4)
+        }else{
+          forecast48h.push((1.8*weather.temp/100) + (weather.humidity/100) * (weather.temp/100 - 14.4) + 46.4)
+        }
+        n = n + 1 
+      })
+      const calculAvg = (array) => {
+      const sum = array.reduce((a, b) => a + b, 0);
+      const avg = (sum / array.length) || 0;
+      return avg
+      }
+      console.log(calculAvg(forecast12h), calculAvg(forecast24h), calculAvg(forecast48h))
+      setThiHourlyForecastWeather48h([calculAvg(forecast12h), calculAvg(forecast24h), calculAvg(forecast48h)])
   }
   
   return (
@@ -66,16 +83,48 @@ function Home() {
       
       {context.searchCoordinates ? 
       <>
+      <div className="col-6">
+          <h3>Charge Thermique Max : </h3>
+          <h1>0</h1>
+        </div>
       <h3>THI :</h3>
-      <ReactSpeedometer minValue={0} maxValue={100} segmentColors={['#3FBF50', '#7FC211', '#F2E311', '#F57710', '#C40D00']} value={thi}/>
-      THI en date du : 
+      <div className="row">
+        <div className="col-6">
+          <ReactSpeedometer minValue={0} maxValue={100} segmentColors={['#3FBF50', '#7FC211', '#F2E311', '#F57710', '#C40D00']} value={thi}/>
+        </div>
+      </div>
       <form onSubmit={handleSubmit}>
-        <input type="date" id="date" name="date" value={date ? date : "2019-06-01"} min="2018-01-01" max="2021-12-31" onChange={e => setDate(e.target.value)}/>
-        <button type="submit">Voir l'historique</button>
+        <button type="submit">Prévisions</button>
        </form>
       </>
       :
       false }
+      {thiForecastWeather48h.length !== 0 ? 
+    <> 
+      <div className="col-6">
+        <div className="row">
+            <div className="col-4">
+              <h3>Dans 12h - charge thermique max : </h3>
+              <h1>0</h1>
+              <h3>THI :</h3>
+              <ReactSpeedometer minValue={0} maxValue={100} segmentColors={['#3FBF50', '#7FC211', '#F2E311', '#F57710', '#C40D00']} value={thiForecastWeather48h[0].toFixed(1)}/>
+            </div>
+            <div className="col-4">
+              <h3>Dans 24h - charge thermique max : </h3>
+              <h1>0</h1>
+              <h3>THI :</h3>
+              <ReactSpeedometer minValue={0} maxValue={100} segmentColors={['#3FBF50', '#7FC211', '#F2E311', '#F57710', '#C40D00']} value={thiForecastWeather48h[1].toFixed(1)}/>
+            </div>
+            <div className="col-4">
+              <h3>Dans 48h - charge thermique max : </h3>
+              <h1>0</h1>
+              <h3>THI :</h3>
+              <ReactSpeedometer minValue={0} maxValue={100} segmentColors={['#3FBF50', '#7FC211', '#F2E311', '#F57710', '#C40D00']} value={thiForecastWeather48h[2].toFixed(1)}/>
+            </div>
+          </div>
+        </div>
+    </> : false   
+    }
       </section>
     </main>
   )
