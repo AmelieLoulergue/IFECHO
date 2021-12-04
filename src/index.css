@@ -80,3 +80,45 @@ button{
 .react-geocoder input:focus{
   outline: 0;
 }
+
+.A { background-color: forestgreen; }
+.B { 
+  background-color: yellow; 
+  color:black}
+.C { background-color: orangered; }
+.D { background-color: rgb(184, 0, 0); }
+
+.round{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.B.round{
+  color: black;
+}
+
+.section {
+  /* margin: 5rem 0; */
+  width: 100%;
+}
+
+.padding-xl{
+  padding: 3rem 0;
+
+}
+
+.react-geocoder-results{
+  width: max-content;
+  margin:1rem auto;
+  border-radius: 10px;
+}
+
+.react-geocoder-results > *{
+  border-bottom: 1px rgb(191, 191, 191) solid;
+  margin-bottom:10px;
+}

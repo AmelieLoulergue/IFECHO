@@ -1,5 +1,6 @@
 import classes from "./Profile.module.css";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
+import {useNavigate} from "react-router"
 import GlobalContext from "../context/GlobalContext";
 import TableThi from "../components/TableThi";
 
@@ -9,6 +10,9 @@ function Profile() {
   const [newLastName, setNewLastName] = useState();
   const [newFirstName, setNewFirstName] = useState();
   const [dateThi, setDateThi] = useState();
+  const [siteInfo, setSiteInfo] = useState({})
+
+  let navigate = useNavigate()
 
   const ctx = useContext(GlobalContext);
   const currentUser = JSON.parse(localStorage.getItem("user"));
@@ -37,6 +41,27 @@ function Profile() {
     }
   };
 
+  const fetchSite = async()=>{
+    // navigate(`/profile/${dateThi.toString()}`)
+  
+    const res = await fetch("http://localhost:3000/sitesdate/1",{
+      headers:{
+        "Content-Type":"application/json"
+      },
+      method:"POST",
+      body:JSON.stringify({
+        date:dateThi
+      })
+    })
+    const data = await res.json()
+    setSiteInfo(data)
+    console.log(data)
+  }
+
+  const changeDateHandler = (e) => {
+    setDateThi(e.target.value)
+    fetchSite()
+  }
 
 
   // ATTENTION : pour que les modifications (nom, prénom) soient prises en compte, il faudra se déconnecter et se reconnecter
@@ -44,8 +69,8 @@ function Profile() {
     <main>
       <h2>Vos exploitations :</h2>
       <div className={classes["round-chart"]}>
-        <input type="date" onChange={(e) => setDateThi(e.target.value)} />
-        {dateThi && <TableThi dateThi={dateThi} /> }
+        <input type="date" onChange={(e) => changeDateHandler(e)} />
+        {dateThi && <TableThi historical_thi={siteInfo.historical_thi} future_thi={siteInfo.future_thi} dateThi={dateThi} /> }
       </div>
 
       <h2>Vos informations personnelles :</h2>
