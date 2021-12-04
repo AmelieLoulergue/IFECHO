@@ -44,7 +44,7 @@ function Profile() {
   const fetchSite = async()=>{
     // navigate(`/profile/${dateThi.toString()}`)
   
-    const res = await fetch("http://localhost:3000/sitesdate/1",{
+    const res = await fetch("https://ifecho-api.herokuapp.com/sitesdate/1",{
       headers:{
         "Content-Type":"application/json"
       },

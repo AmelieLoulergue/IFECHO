@@ -19,7 +19,7 @@ function Home() {
   const onSelected = (result) => {
     context.searchCoordinates = [result.latitude, result.longitude];
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${context.searchCoordinates[0]}&lon=${context.searchCoordinates[1]}&APPID=${process.env.REACT_APP_WEATHER}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${context.searchCoordinates[0]}&lon=${context.searchCoordinates[1]}&APPID=${process.env.REACT_APP_WEATHER}`
     )
       .then((response) => response.json())
       .then((response) => {
