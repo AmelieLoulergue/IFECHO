@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <GlobalContext.Provider value={{jwtToken: jwtToken, setJwtToken:setJwtToken, currentUser: currentUser, setCurrentUser:setCurrentUser }}>
+        <GlobalContext.Provider value={{jwtToken: jwtToken, setJwtToken:setJwtToken, currentUser: currentUser, setCurrentUser:setCurrentUser, searchCoordinates: ""}}>
           <Navbar/>
           <Routes>
             <Route path="/*" element={<Home />} />
