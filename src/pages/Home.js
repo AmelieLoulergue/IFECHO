@@ -8,14 +8,13 @@ function Home() {
   const [thi, setThi]= useState("")
   const [temp, setTemp]= useState("")
   const [humidity, setHumidity]= useState("")
-  const mapboxApiKey = 'pk.eyJ1IjoiYW1lbGllbG91bGVyZ3VlIiwiYSI6ImNrdDhoanZ3NjEyZGkyb3BlZ3oxMTBmeHEifQ.ir5tEud5r6CmrJUyTuG-yw'
-  const weatherApiKey = '405a5e5a09ef7c29d5e73a4f4047ddf2'
+
   const onSelected = (result) => {
     console.log("selected", result.longitude, result.latitude)
     context.searchCoordinates = [result.longitude, result.latitude]
     console.log(context)
-    console.log(`http://api.openweathermap.org/data/2.5/weather?lat=${context.searchCoordinates[1]}&lon=${context.searchCoordinates[0]}&APPID=${weatherApiKey}`)
-    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${context.searchCoordinates[0]}&lon=${context.searchCoordinates[1]}&APPID=${weatherApiKey}`)
+    console.log(`http://api.openweathermap.org/data/2.5/weather?lat=${context.searchCoordinates[1]}&lon=${context.searchCoordinates[0]}&APPID=${process.env.REACT_APP_WEATHER}`)
+    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${context.searchCoordinates[0]}&lon=${context.searchCoordinates[1]}&APPID=${process.env.REACT_APP_WEATHER}`)
     .then(response => response.json())
     .then(response => { 
       console.log(response)
@@ -31,15 +30,16 @@ function Home() {
 
   
   return (
-    <div>
-      Où se situe votre exploitation ? 
+    <main>
+      {/* <h1>env: {process.env.REACT_APP_MAPBOX}</h1> */}
+      <h3>Où se situe votre exploitation ? </h3>
       <Geocoder                
-          mapboxApiAccessToken={mapboxApiKey}                
+          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}                
           onSelected={onSelected}                
           hideOnSelect={true}                
           value=""  
           params={{country: "fr"}} 
-          viewport={{}}             
+          viewport={{}}  
         />  
       
       {context.searchCoordinates ? 
@@ -49,7 +49,7 @@ function Home() {
       </>
       :
       false }
-    </div>
+    </main>
   )
 }
 

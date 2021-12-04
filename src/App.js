@@ -9,6 +9,7 @@ import Profile from './pages/Profile';
 import Navbar from './Layout/Navbar';
 import { useState } from 'react';
 import GlobalContext from './context/GlobalContext';
+import Footer from './Layout/Footer';
 function App() {
   const [jwtToken, setJwtToken] = useState(localStorage.getItem("jwt_token"))
   const [currentUser,setCurrentUser] = useState(JSON.parse(localStorage.getItem("currentUserData"))||"")
@@ -25,6 +26,7 @@ function App() {
             <Route path="/breeder" element={jwtToken ? <Breeder/> : false} />
             <Route path="/profile" element={jwtToken ? <Profile/> : false} />  
           </Routes>
+          <Footer/>
         </GlobalContext.Provider>
       </Router>
     </div>
