@@ -3,14 +3,16 @@ import classes from "./TableThi.module.css"
 const TableThi = ({dateThi}) => {
 
   const getNewDate = (inputDate, nbOfDays) => {
-    const date = new Date(inputDate);
-    const result = new Date();
-    result.setDate(date.getDate() + nbOfDays);
-    return `${result.getDate()}/${result.getMonth() + 1}/${result
+    console.log("input date ", inputDate)
+    let date = new Date(inputDate);
+    date.setDate(date.getDate() + nbOfDays)
+
+    return `${date.getDate()}/${date.getMonth() + 1}/${date
       .getFullYear()
       .toString()
       .slice(2, 4)}`;
   };
+
 
   return (
     <>

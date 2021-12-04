@@ -86,6 +86,7 @@ function Home() {
     ]);
   };
 
+
   return (
     <main className={classes.home}>
       <div className={classes.jumbotron}>

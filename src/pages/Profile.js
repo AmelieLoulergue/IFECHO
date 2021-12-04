@@ -37,13 +37,15 @@ function Profile() {
     }
   };
 
+
+
   // ATTENTION : pour que les modifications (nom, prénom) soient prises en compte, il faudra se déconnecter et se reconnecter
   return (
     <main>
       <h2>Vos exploitations :</h2>
       <div className={classes["round-chart"]}>
         <input type="date" onChange={(e) => setDateThi(e.target.value)} />
-        {dateThi && <TableThi dateThi={dateThi} />}
+        {dateThi && <TableThi dateThi={dateThi} /> }
       </div>
 
       <h2>Vos informations personnelles :</h2>
