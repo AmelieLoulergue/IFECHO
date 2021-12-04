@@ -40,11 +40,11 @@ const SignupForm = () => {
   }
   if(!context.jwtToken){
   return (
-    <div className="row">
-    <div className="col-4"></div>
+    <main>
     <form className="col-4" onSubmit={handleSubmit}>
       <div>
-        Email : 
+        <label>Email:</label>
+        
       <input
         className="col-12"
         label="Email"
@@ -56,7 +56,7 @@ const SignupForm = () => {
       />
       </div>
       <div>
-        Password :
+      <label>Password:</label>
       <input
         className="col-12"
         label="Password"
@@ -72,7 +72,7 @@ const SignupForm = () => {
         </button>
       </div>
     </form>
-    </div>
+    </main>
   )}else{
     navigate('/', { replace: true })
   }

@@ -62,11 +62,21 @@ form input, .react-geocoder input{
 
 button{
   background-color: transparent;
-  border: 1px rgb(34, 34, 34) solid;
+  border: 2px #3BB589 solid;
   border-radius: 5px;
   padding: 0.5rem 1rem;
   cursor: pointer;
   font-family: inherit;
-  color: inherit;
+  color: #3BB589
 }
 
+.react-geocoder input{
+  border-radius: 10px;
+  border-color: #3BB589;
+  box-shadow: none;
+  font-family: inherit;
+}
+
+.react-geocoder input:focus{
+  outline: 0;
+}

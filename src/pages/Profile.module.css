@@ -1,0 +1,19 @@
+.profile-ul{
+  list-style: none;
+  text-align: left;
+  padding-left: 0;
+}
+
+.avatar{
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background: url("https://cdn.shopify.com/s/files/1/0170/5859/4880/files/randyVideoOverlay_550a63f5-5ff4-4ac7-917f-630ba96e4673_1980x.png?v=1578523609");
+  background-size: cover;
+}
+
+.profile{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

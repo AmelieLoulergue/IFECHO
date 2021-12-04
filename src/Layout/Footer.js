@@ -3,7 +3,8 @@ import classes from "./Footer.module.css"
 const Footer = () => {
   return (
     <footer className={classes.footer}>
-      IFECHO 2021
+      <p>IFECHOOooOOoOoooOO</p>
+      <b>#hacktaferme 2021</b>
     </footer>
   )
 }

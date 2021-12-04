@@ -28,7 +28,12 @@ function LoginForm() {
         });
         return response.json();
       })
-      .then((resp) => context.setCurrentUser({ user: resp, avatar: "" }))
+      .then((resp) => {
+        context.setCurrentUser({ user: resp, avatar: "" })
+        localStorage.setItem("user", JSON.stringify(resp.user))
+        console.log("localStorage!!! ", localStorage)
+        navigate(`/profile`);
+      } )
       .catch((error) => console.error(error));
   };
   const handleSubmit = (e) => {
