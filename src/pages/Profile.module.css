@@ -17,3 +17,13 @@
   align-items: center;
   gap: 1rem;
 }
+
+.small{
+  margin-left: 0.5rem;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.small:hover{
+  text-decoration: underline
+}
