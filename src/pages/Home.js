@@ -95,7 +95,7 @@ function Home() {
         <h2>Anticiper le stress thermique pour le bien-être des animaux !</h2>
       </div>
       <section className={`padding-xl section`}>
-        <h2>Analysez l'indice THI de votre exploitation</h2>
+        <h2>Analysez l'indice THI et la Charge Thermique (CT) de votre exploitation</h2>
 
         <Geocoder
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
