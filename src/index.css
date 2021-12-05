@@ -67,7 +67,19 @@ button{
   padding: 0.5rem 1rem;
   cursor: pointer;
   font-family: inherit;
-  color: #3BB589
+  color: #3BB589;
+  transition: 0.25s all;
+}
+
+button.danger, button.warning, button.ok {
+  color: black;
+  border-color: black;
+  background-color: white;
+  border-width: 1px;
+}
+
+button:hover{
+  transform: translateY(-2px);
 }
 
 .react-geocoder input{
@@ -161,3 +173,31 @@ button{
   height: 15rem;
   transform: translateY(30px);
 }
+
+.grid-farms{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem;
+}
+
+.farm{
+  height: 15rem;
+  width: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.farm.ok{
+  background-color: hsla(158, 51%, 47%, 0.4);
+}
+
+.farm.danger{
+  background-color: rgba(255, 0, 0, 0.4);
+}
+.farm.warning{
+  background-color: hsla(39, 100%, 50%, 0.4);}

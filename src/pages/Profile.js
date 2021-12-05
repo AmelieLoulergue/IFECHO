@@ -67,11 +67,14 @@ function Profile() {
   // ATTENTION : pour que les modifications (nom, prénom) soient prises en compte, il faudra se déconnecter et se reconnecter
   return (
     <main>
-      <h2>Vos exploitations :</h2>
+      <h2>Vos élevages :</h2>
       <div className={classes["round-chart"]}>
         <input type="date" onChange={(e) => changeDateHandler(e)} />
         {dateThi && <TableThi historical_thi={siteInfo.historical_thi} future_thi={siteInfo.future_thi} dateThi={dateThi} /> }
       </div>
+
+      <h2>Vos élevages suivis:</h2>
+
 
       <h2>Vos informations personnelles :</h2>
       <div className={classes.profile}>
