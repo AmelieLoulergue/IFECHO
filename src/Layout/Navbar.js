@@ -36,6 +36,8 @@ function Navbar() {
 
       ) : (
         <ul className={classes["nav-ul"]}>
+          <li className={classes["nav-link"]}><Link to="/elevages-suivis">Vos élevages suivis</Link></li>
+          <li className={classes["nav-link"]}><Link to="/mes-elevages">Mes élevages</Link></li>
           <li className={classes["nav-link"]}><Link to="/profile">Mon profil</Link></li>
           <li className={classes["nav-link"]} onClick={logOut}><Link to="/">Déconnexion</Link></li>
         </ul>
