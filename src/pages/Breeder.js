@@ -45,6 +45,16 @@ function Breeder({dateThi}) {
         borderDash: [6,6],
         data: future_ct,
       }
+      ,
+      {
+        label: "Seuil d'alerte",
+        fill: false,
+        lineTension: 0.5,
+        backgroundColor: 'rgb(255,0,0)',
+        borderColor: 'rgb(255,0,0)',
+        borderWidth: 4,
+        data: Array(242).fill(5),
+      }
   
     ]
   }
@@ -62,11 +72,18 @@ function Breeder({dateThi}) {
               display:true,
               position:'right'
             }, 
+            scales: {
+              y: {
+                  suggestedMin: 0,
+                  suggestedMax: 20
+              }
+          },
             elements: {
               point:{
                   radius: 0
               }
-          }
+          }, 
+
 
           }}
         />

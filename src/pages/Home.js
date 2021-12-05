@@ -111,15 +111,15 @@ function Home() {
               <div className="speed">
                 <h3 className="abs">THI :</h3>
                 <ReactSpeedometer
-                  minValue={0}
+                  minValue={30}
                   maxValue={100}
                   segmentColors={[
-                    "#3FBF50",
                     "#7FC211",
                     "#F2E311",
                     "#F57710",
                     "#C40D00",
                   ]}
+                  customSegmentStops={[30, 68, 72, 78, 100]}
                   value={thi}
                 />
               </div>
@@ -143,16 +143,16 @@ function Home() {
                 <h5>Charge thermique max : <span className="big">0</span></h5>
                 <h3>THI :</h3>
                 <ReactSpeedometer
-                  minValue={0}
+                  minValue={30}
                   maxValue={100}
                   segmentColors={[
-                    "#3FBF50",
                     "#7FC211",
                     "#F2E311",
                     "#F57710",
                     "#C40D00",
                   ]}
                   value={thiForecastWeather48h[0].toFixed(1)}
+                  customSegmentStops={[30, 68, 72, 78, 100]}
                 />
               </div>
               <div className={classes.speedometer}>
@@ -160,16 +160,16 @@ function Home() {
                 <h5>Charge thermique max : <span className="big">0</span></h5>
                 <h3>THI :</h3>
                 <ReactSpeedometer
-                  minValue={0}
+                  minValue={30}
                   maxValue={100}
                   segmentColors={[
-                    "#3FBF50",
                     "#7FC211",
                     "#F2E311",
                     "#F57710",
                     "#C40D00",
                   ]}
                   value={thiForecastWeather48h[1].toFixed(1)}
+                  customSegmentStops={[30, 68, 72, 78, 100]}
                 />
               </div>
               <div className={classes.speedometer}>
@@ -177,16 +177,16 @@ function Home() {
                 <h5>Charge thermique max : <span className="big">0</span></h5>
                 <h3>THI :</h3>
                 <ReactSpeedometer
-                  minValue={0}
+                  minValue={30}
                   maxValue={100}
                   segmentColors={[
-                    "#3FBF50",
                     "#7FC211",
                     "#F2E311",
                     "#F57710",
                     "#C40D00",
                   ]}
                   value={thiForecastWeather48h[2].toFixed(1)}
+                  customSegmentStops={[30, 68, 72, 78, 100]}
                 />
               </div>
             </div>
