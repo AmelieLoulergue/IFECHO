@@ -16,13 +16,9 @@ function Navbar() {
       method: "DELETE",
     })
       .then(async (response) => {
-        console.log(context, "caca");
-        console.log(localStorage.getItem("jwt_token"));
-        console.log("ca marche", response);
-        console.log(localStorage.getItem("jwt_token"), "avant delete");
-        localStorage.removeItem("jwt_token");
+        context.setCurrentUser("")
         context.setJwtToken("");
-        console.log(localStorage.getItem("jwt_token"), "après delete");
+        localStorage.clear()
       })
       .catch((error) => console.error(error));
   };
