@@ -37,9 +37,10 @@ const MySites = () => {
 
   return (
     <main>
-      <h2>Vos élevages :</h2>
+      <h1>Vos élevages :</h1>
+      <h3>Veuillez sélectionner une date</h3>
       <div className={classes["round-chart"]}>
-        <input type="date" onChange={(e) => changeDateHandler(e)} />
+        <input type="date" defaultValue="2019-06-15" onChange={(e) => changeDateHandler(e)} />
         {dateThi && <TableThi historical_thi={siteInfo.historical_thi} future_thi={siteInfo.future_thi} dateThi={dateThi} /> }
         <br/>
         {dateThi && <Breeder dateThi={dateThi} /> }

@@ -40,11 +40,12 @@ const AdvisedSite = () => {
 
   return (
     <main>
-      <h2>{slug}</h2>
+      <h1>{slug[0].toUpperCase()+slug.slice(1,slug.length)}</h1>
+      <h3>Veuillez sélectionner une date</h3>
       {slug === "derval" && (
         <>
           <div>
-            <input type="date" onChange={(e) => changeDateHandler(e)} />
+            <input type="date" defaultValue="2019-06-15" onChange={(e) => changeDateHandler(e)} />
             {dateThi && <TableThi historical_thi={siteInfo.historical_thi} future_thi={siteInfo.future_thi} dateThi={dateThi} />}
             <br />
             {dateThi && <Breeder dateThi={dateThi} />}
