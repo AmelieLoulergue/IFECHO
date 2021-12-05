@@ -19,7 +19,7 @@ function Profile() {
 
   const updateHandler = async (e, field) => {
     e.preventDefault();
-    const res = await fetch(`http://localhost:3000/users/${currentUser.id}`, {
+    const res = await fetch(`https://ifecho-api.herokuapp.com/users/${currentUser.id}`, {
       headers: {
         "Authorization": localStorage.getItem("jwt_token"),
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ function Profile() {
   const fetchSite = async()=>{
     // navigate(`/profile/${dateThi.toString()}`)
   
-    const res = await fetch("http://localhost:3000/sitesdate/1",{
+    const res = await fetch("https://ifecho-api.herokuapp.com/sitesdate/1",{
       headers:{
         "Content-Type":"application/json"
       },

@@ -10,7 +10,7 @@ function Breeder({dateThi}) {
   const [historical_ct, setHistorical_ct] = useState("")
 
   const getDatas = async () => {
-      const res = await fetch("http://localhost:3000/sitesdate/1", {
+      const res = await fetch("https://ifecho-api.herokuapp.com/sitesdate/1", {
         body: JSON.stringify({date:dateThi}),
         headers: {
           "Content-Type": "application/json",
