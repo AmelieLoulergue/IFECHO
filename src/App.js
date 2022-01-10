@@ -10,6 +10,10 @@ import Navbar from './Layout/Navbar';
 import { useState } from 'react';
 import GlobalContext from './context/GlobalContext';
 import Footer from './Layout/Footer';
+import AdvisedSites from './pages/AdvisedSites';
+import MySites from './pages/MySites';
+import AdvisedSite from './pages/AdvisedSite';
+
 function App() {
   const [jwtToken, setJwtToken] = useState(localStorage.getItem("jwt_token"))
   const [currentUser,setCurrentUser] = useState(JSON.parse(localStorage.getItem("currentUserData"))||"")
@@ -24,7 +28,10 @@ function App() {
             <Route path="/signup" element={!jwtToken ? <Signup/> : false} />
             <Route path="/advisor" element={jwtToken && currentUser && currentUser.is_advisor ? <Advisor/> : false} />
             <Route path="/breeder" element={jwtToken ? <Breeder/> : false} />
+            <Route path="/elevages-suivis" element={jwtToken ? <AdvisedSites/> : false} />
+            <Route path="/mes-elevages" element={jwtToken ? <MySites/> : false} />
             <Route path="/profile" element={jwtToken ? <Profile/> : false} />  
+            <Route path="/mes-elevages-conseilles/:slug" element={jwtToken ? <AdvisedSite/> : false} />  
           </Routes>
           <Footer/>
         </GlobalContext.Provider>
